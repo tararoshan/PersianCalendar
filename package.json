@@ -25,7 +25,7 @@
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.2.1",
     "eslint": "^8.19.0",
-    "husky": "^8.0.3",
+    "husky": "^4.3.8",
     "jest": "^29.2.1",
     "lint-staged": "^13.1.0",
     "metro-react-native-babel-preset": "0.73.7",
@@ -42,15 +42,19 @@
     }
   },
   "lint-staged": {
-    "ios/**/*.{js,jsx,ts,tsx,json}": [
+    "ios/**/*.{js,jsx,ts,tsx}": [
       "prettier ios --write",
-      "eslint ios --fix",
-      "git add"
+      "eslint ios --fix"
     ],
-    "**/*.{js,jsx,ts,tsx,json}": [
-      "prettier ios --write",
-      "eslint ios --fix",
-      "git add"
+    "ios/**/*.{json}": [
+      "prettier ios --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{js,jsx,ts,tsx,json}": [
+      "prettier --write"
     ]
   }
 }
