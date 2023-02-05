@@ -34,5 +34,12 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "prettier src --write",
+      "eslint src --fix",
+      "git add"
+    ]
   }
 }

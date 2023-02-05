@@ -1,4 +1,4 @@
-# persian-calendar
+# PersianCalendar
 React Native app to display and convert between the Gregorian and Solar Hijri calendars
 
 ## TOC
@@ -207,3 +207,14 @@ The handleLocalizationChange() method fires setI18nConfig() and forceUpdate(). T
 We will remove the listener in componentWillUnmount() lifecycle method.
 
 Finally, in the render() we’ll return hello by using translate() and passing the key as a parameter into it. It will then automatically figure out the language and the text that needs to be shown for that language.
+
+### Notes to my Future Self
+**Git**
+ > I was working on this with a weird directory structure and wanted to
+ completely redo it while still having the same repo. In other words, I wanted
+ to completely *overwrite the existing repo with local changes*. So I deleted
+ the `.git` folder and ran `git push -f -u origin main` in order to force my
+ local changes to take place in the existing repo!
+
+**React Native**
+> The iOS build can take an *extremely* long time. The sample itself is 5 min.
