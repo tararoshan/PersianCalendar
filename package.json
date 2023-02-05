@@ -36,9 +36,9 @@
     "preset": "react-native"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json}": [
-      "prettier src --write",
-      "eslint src --fix",
+    "ios/**/*.{js,jsx,ts,tsx,json}": [
+      "prettier ios --write",
+      "eslint ios --fix",
       "git add"
     ]
   }
