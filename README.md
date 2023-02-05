@@ -218,7 +218,7 @@ We will remove the listener in componentWillUnmount() lifecycle method.
 
 Finally, in the render() we’ll return hello by using translate() and passing the key as a parameter into it. It will then automatically figure out the language and the text that needs to be shown for that language.
 
-### Notes to my Future Self
+### What I Learned
 
 **Git**
 
@@ -231,3 +231,38 @@ Finally, in the render() we’ll return hello by using translate() and passing t
 **React Native**
 
 > The iOS build can take an _extremely_ long time. The sample itself is 5 min.
+
+**Husky (pre-commit formatting hook)**
+
+> I used husky to lint my commits before staging them! If the files in the
+> commit didn't pass the formatting check, the commit won't go through (and the
+> files should also be formatted). I did this by running
+```bash
+npm install -D husky@4 --save-dev
+npm install --save-dev lint-staged
+npm pkg set scripts.prepare="husky install"
+```
+> and adding this to the package.json
+```json
+"husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "ios/**/*.{js,jsx,ts,tsx}": [
+      "prettier ios --write",
+      "eslint ios --fix"
+    ],
+    "ios/**/*.json": [
+      "prettier ios --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  }
+```

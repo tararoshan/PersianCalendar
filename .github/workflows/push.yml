@@ -1,0 +1,30 @@
+name: 'coverage'
+
+on:
+    pull_request:
+        branches:
+            - master
+            - main
+    push:
+        branches:
+            - master
+            - main
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+        steps:
+			- name: use nodeJS
+			  uses: actions/setup-node@v3
+			  with:
+				node-version: 19.x
+				cache: "npm"
+			  run: npm i
+			  run: npm run build
+
+			- name: coverage
+			  uses: actions/checkout@v3
+			  uses: ArtiomTr/jest-coverage-report-action@v2
+
+			- name: lint
+			  run: npm eslint src --ext .js,.jsx,.ts,.tsx --fix
