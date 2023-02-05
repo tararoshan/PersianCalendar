@@ -47,7 +47,7 @@
       "eslint ios --fix",
       "git add"
     ],
-    "./*.{js,jsx,ts,tsx,json}": [
+    "**/*.{js,jsx,ts,tsx,json}": [
       "prettier ios --write",
       "eslint ios --fix",
       "git add"
