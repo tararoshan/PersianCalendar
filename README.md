@@ -1,42 +1,47 @@
 # PersianCalendar
+
 React Native app to display and convert between the Gregorian and Solar Hijri calendars
 
 ## TOC
+
 - Background
 - Getting Started
 
 ## Background
+
 TODO explain the purpose and the calendars
 
 ## Getting Started
+
 From the PersianCalendar directory, first install the needed packages (`npm i`)
 and then run `npx react-native run-ios`. Note that this will only work with the
 proper XCode version installed (MacOS). The **sample build took me 6 minutes**,
 for comparison. I would like to keep the build to under 15 minutes!
 
 Run instructions for Android:
-    • Have an Android emulator running (quickest way to get started), or a device connected.
-    • cd "/Users/tara/github/persian-calendar/PersianCalendar" && npx react-native run-android
-  
-  Run instructions for iOS:
-    • cd "/Users/tara/github/persian-calendar/PersianCalendar" && npx react-native run-ios
-    - or -
-    • Open PersianCalendar/ios/PersianCalendar.xcworkspace in Xcode or run "xed -b ios"
-    • Hit the Run button
-    
-  Run instructions for macOS:
-    • See https://aka.ms/ReactNativeGuideMacOS for the latest up-to-date instructions.
+• Have an Android emulator running (quickest way to get started), or a device connected.
+• cd "/Users/tara/github/persian-calendar/PersianCalendar" && npx react-native run-android
+
+Run instructions for iOS:
+• cd "/Users/tara/github/persian-calendar/PersianCalendar" && npx react-native run-ios - or -
+• Open PersianCalendar/ios/PersianCalendar.xcworkspace in Xcode or run "xed -b ios"
+• Hit the Run button
+
+Run instructions for macOS:
+• See https://aka.ms/ReactNativeGuideMacOS for the latest up-to-date instructions.
 
 ## Notes
+
 - For converting system's current time to IR time, use [moment](https://momentjs.com/timezone/)
-- To convert the Solar Hijri year into the equivalent Gregorian year add 621 or 622 years to the Solar Hijri year depending on whether the Solar Hijri year has or has not begun (*before v. after the Spring Equinox, typically 21 March*).
+- To convert the Solar Hijri year into the equivalent Gregorian year add 621 or 622 years to the Solar Hijri year depending on whether the Solar Hijri year has or has not begun (_before v. after the Spring Equinox, typically 21 March_).
 - [multi-language react app tutorial](https://betterprogramming.pub/creating-a-multi-language-app-in-react-native-9828b138c274)
 - Color palette: #2e5f23, #4a6e54, #667b80, #8188ac, #9e93d9
-![palette image](colorkit.png)
-
+  ![palette image](colorkit.png)
 
 What follows from here are copies of important parts of the Medium articles (since I'm worried I won't have access to them later):
+
 ### React Native Calendar
+
 `$ npm install --save react-native-calendars`
 
 ```
@@ -51,6 +56,7 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 ```
 
 Vertical calendar
+
 ```
 import React from 'react';
 import {
@@ -111,6 +117,7 @@ const styles = StyleSheet.create({
 ```
 
 ### Localization
+
 [Tutorial Webpage Link](https://betterprogramming.pub/creating-a-multi-language-app-in-react-native-9828b138c274)
 `$ npm i react-native-localize`
 Create a `translations` directory inside `src` and then create a JSON file for each language: en.json for English, fa.json for Farsi/Persian.
@@ -118,12 +125,14 @@ Create a `translations` directory inside `src` and then create a JSON file for e
 The key will be the same for each language and will be used in the app to display text. The value will be the text that we want to show to the user and will be different for each language.
 
 in App.js,
+
 ```
 import * as RNLocalize from "react-native-localize";
 import memoize from "lodash.memoize"; // Use for caching/memoize for better performance
 ```
 
 Helper material
+
 ```
 const translationGetters = {
   // lazy requires (metro bundler does not support symlinks)
@@ -156,6 +165,7 @@ const setI18nConfig = () => {
 ```
 
 App class component
+
 ```
 export default class App extends React.Component {
   constructor(props) {
@@ -209,12 +219,15 @@ We will remove the listener in componentWillUnmount() lifecycle method.
 Finally, in the render() we’ll return hello by using translate() and passing the key as a parameter into it. It will then automatically figure out the language and the text that needs to be shown for that language.
 
 ### Notes to my Future Self
+
 **Git**
- > I was working on this with a weird directory structure and wanted to
- completely redo it while still having the same repo. In other words, I wanted
- to completely *overwrite the existing repo with local changes*. So I deleted
- the `.git` folder and ran `git push -f -u origin main` in order to force my
- local changes to take place in the existing repo!
+
+> I was working on this with a weird directory structure and wanted to
+> completely redo it while still having the same repo. In other words, I wanted
+> to completely _overwrite the existing repo with local changes_. So I deleted
+> the `.git` folder and ran `git push -f -u origin main` in order to force my
+> local changes to take place in the existing repo!
 
 **React Native**
-> The iOS build can take an *extremely* long time. The sample itself is 5 min.
+
+> The iOS build can take an _extremely_ long time. The sample itself is 5 min.
