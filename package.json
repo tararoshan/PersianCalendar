@@ -46,14 +46,14 @@
       "prettier ios --write",
       "eslint ios --fix"
     ],
-    "ios/**/*.{json}": [
+    "ios/**/*.json": [
       "prettier ios --write"
     ],
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint --fix"
     ],
-    "*.{js,jsx,ts,tsx,json}": [
+    "*.json": [
       "prettier --write"
     ]
   }
